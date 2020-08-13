@@ -1,0 +1,19 @@
+<div class="jumbotron">
+  <h1>
+   <%= @cocktail.name %>
+  </h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <% @cocktail.doses.each do |dose| %>
+         <%= dose.description %>
+         <%= link_to "Delete", cocktail_path(@cocktail), method: :delete, data: { confirm: "Are you sure?"}, class: "card-remove-link" %>
+      <% end %>
+      <p>
+        <%= link_to "Add ingredients", new_cocktail_dose_path(@cocktail)  %>
+      </p>
+    </div>
+  </div>
+</div>

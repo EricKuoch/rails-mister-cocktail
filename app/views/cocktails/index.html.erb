@@ -1,0 +1,18 @@
+<div class="jumbotron">
+<h1>Mister Cocktail</h1>
+</div>
+
+<div class="container">
+  <ul>
+  <% @cocktails.each do |cocktail| %>
+  <li>
+    <%= link_to "#{cocktail.name}", cocktail_path(cocktail) %>
+     <%= link_to "-", cocktail_path(cocktail), method: :delete, data: { confirm: "Are you sure?"}, class: "card-remove-link" %>
+  </li>
+  <% end %>
+  </ul>
+</div>
+
+<div class="container">
+<%= link_to "Create a new cocktail", new_cocktail_path %>
+</div>

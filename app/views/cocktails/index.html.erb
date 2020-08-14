@@ -2,25 +2,16 @@
   <h1>Mister Cocktail</h1>
   <%= link_to "Create a new cocktail", new_cocktail_path %>
 </div>
-
-<!-- <div class="container">
-  <ul>
-    <% @cocktails.each do |cocktail| %>
-      <div class="card-product ">
-        <li>
-          <%= link_to "#{cocktail.name}", cocktail_path(cocktail) %>
-          <%= link_to "-", cocktail_path(cocktail), method: :delete, data: { confirm: "Are you sure?"}, class: "card-remove-link" %>
-        </li>
-      </div>
-    <% end %>
-  </ul>
-</div> -->
+<div>
+  <h4>YOUR FAVORITE COCKTAILS</h4>
+</div>
 <% @cocktails.each do |cocktail| %>
 <div class="card-product">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill if cocktail.photo.attached? %>
     <div class="card-product-infos">
       <h2><%= link_to "#{cocktail.name}", cocktail_path(cocktail) %></h2>
       <p><%= link_to "Delete", cocktail_path(cocktail), method: :delete, data: { confirm: "Are you sure?"}, class: "card-remove-link" %></p>
     </div>
   </div>
 <% end %>
+

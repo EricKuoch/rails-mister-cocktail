@@ -17,7 +17,8 @@ class DosesController < ApplicationController
     @dose.destroy
     redirect_to cocktail_path, notice: 'Dose was successfully destroyed.'
   end
+
   def dose_params
-    params.require(:dose).permit(:description, :ingredient_id )
+    params.require(:dose).permit(:description, :ingredient_id)
   end
 end

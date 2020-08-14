@@ -7,8 +7,8 @@
 </div>
 <% @cocktails.each do |cocktail| %>
 <div class="card-product">
-    <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill if cocktail.photo.attached? %>
-    <div class="card-product-infos">
+  <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill if cocktail.photo.attached? %>
+      <div class="card-product-infos">
       <h2><%= link_to "#{cocktail.name}", cocktail_path(cocktail) %></h2>
       <p><%= link_to "Delete", cocktail_path(cocktail), method: :delete, data: { confirm: "Are you sure?"}, class: "card-remove-link" %></p>
     </div>
